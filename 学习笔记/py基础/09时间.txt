@@ -1,0 +1,81 @@
+day09
+2018.3.23
+16:35
+
+
+编码与解码
+    写入时编码:  f.write(str.encode(encoding = 'utf-8'))
+    读取时解码:  newData = data.decode(encoding = 'utf-8')
+
+数据的持久性模块PICKLE
+    持久化
+        持久性就是指保持对象
+	序列化
+	    pickle.dump(obj,打开的二进制文件[,protocol])
+	    obj是要保存的对象,   protocol是为序列化使用的协议版本(0:ascii协议,1:老式的二进制协议,2:新二进制协议) 默认为0
+	    通过pickle模块的序列化操作我们能够将程序中运行的对象信息保存到文件中,永久存储
+	反序列化
+	    pickle.load(打开的文件)
+	    通过pickle模块的反序列化操作,可以从文件中创建上一次程序保存的对象
+    	
+时间
+    名词
+        UTC 世界协调时间
+	DST 夏令时
+    时间的表达形式
+        时间戳
+	元组格式
+	    元组有9个整型内容
+	    year,month,day,hour,minute,second,夏令时,一年中的第几天,一个星期中的第几天
+	格式化的时间字符串
+	常用方法
+	    time.time() 当前的时间戳
+	    time.gmtime([c]) 将时间戳转化成时间元组
+	    time.localtime([c]) 将时间戳转化成当地时间的时间元组
+	    time.mktime(b)  将元组转化成时间戳
+	    time.strftime(格式化字符,时间元组)  将时间元组转换成给定格式的字符,参数2为给定的时间元组,不给默认为当前时间
+	    time.strptime(时间元组,格式化字符)  将时间字符串转为时间元组
+	    time.asctime(b) 将时间元组转化成字符串
+	    time.ctime(c) 将时间戳转为字符串
+	    time.sleep(4) 延迟一个时间,整型或者浮点型  单位秒
+	    time.clock() cpu的执行时间
+
+
+string
+    字符串操作函数
+
+类型转换
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,102 @@
+day22
+2018.4.12
+19:35
+
+
+基本使用
+    格式 选择器(属性名:属性值)
+    使用位置
+        外部样式表  link
+	内部样式表  head -- style
+	内联样式表  标签的属性 style  优先级最高
+
+选择器
+    元素选择器   元素名{}
+    id选择器   #id名{}  元素中需要添加id属性
+    class选择器  .类名{}  元素中需要添加class属性
+    可以使用多个选择器    class属性值可以对应多个类选择器,每个类名用空格隔开,可以综合使用
+    群组选择器  选择器1,选择器2... 用逗号隔开
+    包含选择器  父级选择器1  子集选择器  ...{}  用空格隔开
+    通配符选择器 *{}   *代表所有
+    选择器的权重   内联1000  id 100  ...
+
+css 属性
+    文字属性
+        font-size
+	font-family
+	font-weight
+	...
+    列表属性
+        list-style-type
+	list-style-image:url(图片地址)
+	list-style-position
+	list-style
+    边框属性
+        border-style
+	border-color
+	border-weight
+	均可以设置4个值,遵循时钟原则
+	border
+    背景属性
+        backgroud-color
+	backgroud-image
+	backgroud-repeat
+	backgroud-size
+	backgroud-position
+	backgroud
+
+浮动
+    float: left right
+    清除浮动
+        1 clear:both
+	2 overflow:hidden
+	3.万能
+	.clearfix:after{
+	     conten:"";
+	     display:block;
+	     height:0;
+	     clear:both;
+			}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

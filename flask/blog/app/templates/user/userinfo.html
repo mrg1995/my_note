@@ -1,0 +1,12 @@
+{% extends 'common/base.html' %}
+{% block title %}
+    user info
+{% endblock %}
+{% import 'bootstrap/wtf.html' as wtf %}
+{% block page_content %}
+    <h1>个人信息</h1>
+    <span>姓名</span> : <span>{{ user.username }}</span> <br>
+    <span>性别</span> : <span>{{ user.gender }}</span> <br>
+    <span>年龄</span> : <span>{{ user.age }}</span> <br>
+    <span>邮箱地址</span> : <span>{{ user.email }}</span> <br>
+{% endblock %}

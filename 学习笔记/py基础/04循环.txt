@@ -1,0 +1,56 @@
+day04
+2018.3.20
+19:02
+
+
+while 循环
+
+break与continue
+    break: 用来终止循环语句,当循环条件为假 或者 序列还没被完全递归完,也会停止执行while语句
+    用于while和for循环中
+    如果嵌套循环,break语句将停止执行最深层的循环,并开始执行下一行代码
+
+    continue: 跳出当前循环的剩余语句,然后继续执行下一轮循环
+    在while和for循环中使用
+
+for 循环
+	for循环可以遍历任何序列的项目,list,tuple,str,dict
+	for--else语句
+	    for循环里面的内容执行完后还会执行else (注意:for中用来break,执行break后不会执行else;若没有break,肯定会执行else语句)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,147 @@
+day08
+2018.3.22
+16:53
+
+
+文件介绍
+    文件定义:存储在某种长期存储设备上的一段数据流
+    文件的作用:把一些文件存储起来,可以让程序下一次执行的时候直接使用
+
+文件读写
+    文件操作基本过程
+        打开一个文件或者建立一个新文件
+	读写数据
+	关闭文件
+    读文件
+        打开一个文件 f = open(path[,mode][,encoding][,errors])
+	    path: 需要打开文件的路径
+	    mode:打开方式
+	        r 只读,文件描述符放在文件的开头,当没有对应文件时会报错
+		rb 以二进制格式打开一个文件用于只读,文件的描述符放在文件的开头
+		r+ 打开一个文件用于读写,文件的描述符放在文件的开头
+                w  打开一个文件只用于写入,如果该文件已经存在会覆盖,如果不存在则创建新文件
+		wb 打开一个文件用于写入二进制,如果该文件已经存在会覆盖,如果不存在则创建新文件
+		w+ 打开一个文件用于读写
+		a  打开一个文件用于追加,如果文件存在,文件描述符在末尾;如果不存在则创建新文件
+		ab 以二进制打开文件,以二进制追加
+		a+ 打开一个文件用于读写  文件描述符在末尾
+	    encoding: 编码方式
+	    errors:错误处理  一般  errors = 'ignore'
+	读文件内容
+	    读取文件全部内容: str1 = f.read()
+	    读取指定字符数:  str1 = f.read(10)
+	    读取整行,包括'\n'字符: str1 = f.readline()
+	    读取指定几行 : str1 = f.readline(3)
+	    读取所有行并返回列表: list1 = f.readlines()
+	    读取给定行数并返回列表:list1 = f.readlines(25)
+	    修改描述符的位置
+	    	f.seek(0,0)
+		第一个参数是offset(偏移量),相对于参考位置移动
+		第二个参数是shence(参考位置),0表示起始位置,1表示当前位置,2表示末尾位置
+		注意:如果使用多次读,那么后面读取的数据是从上次读完后的位置开始
+	关闭文件  f.close()
+	一个完整过程叙述
+	    可能出现的问题
+	        1.可能忘记关闭文件句柄
+		2.文件读取数据发生异常,没有进行任何处理
+	    普通处理,使用try,finally  (day08->01)
+		无论程序出现什么错误,都会关闭文件
+	    with处理
+	        格式: with open(path[,mode][,encoding][,errors]) as file:
+		          data = file.read()
+		特点:可以很好的处理上下文环境产生的异常
+    写文件
+        打开一个文件
+	写文件
+	    将文件写入缓冲区(内存):f.write('guo is a good man')
+	    刷新缓冲区:f.flush直接把内部缓冲区的数据立刻写入文件
+	关闭文件
+
+复制大文件 day08->04
+    while True:			
+        content = rf.read(1024)
+	if len(content) == 0:
+		break
+	wf.write(content)
+	wf.flush()
+    wf.close()
+    rf.close
+
+文件的定位读写
+    获取当前的读写位置:  position = f.tell()
+    定位外某个位置:
+        在读写文件的过程中,修改文件描述符位置
+	f.seek()
+	参数1表示与参考位置的偏移量
+	参数2表示参考位置 0表示文首  1表示当前位置 2表示末尾
+
+os模块
+    简介:包含了普遍的操作系统的功能,提供了丰富的方法来处理文件和目录
+
+    目录操作
+        os.curdir  获取当前目录
+	os.getcwd() 获取当前工作目录,即当前python脚本所在的目录
+	os.listdir(path) 以列表形式返回指定目录下的所有文件
+	os.mkdir()  创建目录   当键入绝对路径的父级目录不存在时会报错;当该目录已经存在时也会报错
+	os.makedirs() 创建目录  
+	os.rmdir()  删除目录
+	os.remove() 删除普通文件
+	os.stat()  获取文件属性
+	os.rename() 重命名
+
+    os.path模块
+    	os.path.abspath('')  查看当前的绝对路径
+	os.path.join(p3,p4)  拼接路径 字符串1 + 字符串2
+	os.path.split(path)  拆分路径,将文件名和路径拆分开,返回一个元组
+	os.path.splitext(path)  获取文件扩展名
+        os.path.isdir(path)    判断是否是目录
+	os.path.isfile(path)   判断文件是否存在
+	os.path.exists(path)  判断目录或者文件是否存在
+	os.path.getsize(path)  获得文件的大小,返回字节
+	os.path.dirname(path)   文件的目录
+	os.path.basename(path)   文件名
+
+    shell命令
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

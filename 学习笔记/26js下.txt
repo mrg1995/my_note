@@ -1,0 +1,163 @@
+day26
+2018.4.17
+16:52
+
+
+
+定时器的使用
+    setInterval(函数,时间)  参数1是要执行的函数,参数2是间隔时间  单位是毫秒  
+        第一次也会延迟间隔时间后执行
+	会返回该定时器的id
+	
+    clearInterval(定时器id)
+
+    setTimeout(函数,时间)
+        表示延迟多长时间后执行函数  只会执行一次
+
+
+    定时器都不会阻塞之后程序的执行
+
+计时器
+
+抽奖脚本
+
+事件要素
+    1.可以触发事件的对象
+    2.触发事件后要执行的函数
+    3.执行函数
+
+鼠标点击事件
+    click： 当单击鼠标按钮并在松开时触发
+    dblclick： 当双击鼠标按钮时触发。
+    mousedown：当按下了鼠标还未松开时触发。 
+    mouseup： 释放鼠标按钮时触发。
+    mousemove：当鼠标指针在某个元素上移动时触发。
+
+    mouseover：当鼠标移入某个元素的那一刻触发。
+    mouseout：当鼠标刚移出某个元素的那一刻触发。
+
+    mouseenter：当鼠标移入某个元素的那一刻触发。
+    mouseleave：当鼠标刚移出某个元素的那一刻触发。
+
+    mouseover和 mouseenter的区别是: 
+    mouseover: 元素的子元素移入也会触发事件
+    mouseenter : 元素的子元素移入不会触发事件
+
+键盘事件
+     键盘事件，在键盘上按下键时触发的事件; 
+     (一般由window对象或者document对象调用)
+
+	keydown：当用户按下键盘上某个键触发，如果按住不放，会重复触发。
+	keypress：当用户按下键盘上的字符键触发，如果按住不放，会重复触发
+	keyup：当用户释放键盘上的某个键触发。
+
+	keypress 只有一些输入项键才能触发,比如字母,数字,字符     功能性按键不能触发
+
+
+html事件
+	HTML事件，跟HTML页面相关的事件;  调用对象是window
+	load：当页面完全加载后触发
+	unload：当页面完全卸载后触发
+	scroll：当用户滚动带滚动条的元素时触发。
+	调用对象是input
+	select：当用户选择文本框(input 或 textarea)中的内容触发。
+	change：当文本框(input 或 textarea)内容改变且失去焦点后触发。
+	focus：当页面或者元素获得焦点时触发。
+	blur：当页面或元素失去焦点时触发。
+	
+
+
+事件对象
+    event对象是在触发事件时, 浏览器会通过函数把事件对象作为参数传递过来, 在事件触发执行函数时一般会得到一个隐藏的参数
+	box.onclick = function(evt){ 
+	 var e= evt  //获取到event对象(事件对象)
+	console.log(e);
+    事件对象属性  调用的是event
+	button: 鼠标按下了哪个键  左键0  中键1 右键2
+	clientX: 浏览器可视区域的x坐标
+	clientY: 浏览器可视区域的y坐标
+	pageX: 浏览器内容区域的x坐标
+	pageY: 浏览器内容区域的y坐标
+	screenX: 显示器屏幕的x坐标
+	screenY: 显示器屏幕的y坐标
+	offsetX: 鼠标点击的元素位置距离元素左边界的x坐标
+	offsetY: 鼠标点击的元素位置距离元素上边界的y坐标
+    键盘事件的组合键
+      调用event
+      ctrlkey   是否按下ctrl键
+      altkey
+      shiftkey
+    
+      keydown和keyup 事件下使用
+      键码 : keyCode属性   得到ascii码值  
+	所有按键(包括功能键control, alt,shift, tab, 方向键等, 不包括亮度,音量..的按键)在发生 keydown和keyup 事件时，event对象的 keyCode属性中会包含一个代码，与键盘上一个特定的键对应。对数字字母字符集，keyCode属性的值与 ASCII 码中对应.
+        注意: 大写字母或小写的编码相同, 都为大写字母。
+      
+      keypress事件时 event才有charCode事件
+      keycode 能获得所有键盘码  也可以区分大小写
+      字符编码: charCode属性  
+        (字符键: 数字, 字母(区分大小写), 字符, 空格, 回车 )
+        这个charCode的值和UniCode码对应
+        注意：可以使用 String.fromCharCode()将 Unicode 编码转换成实际的字符
+
+精灵跟随鼠标移动
+
+
+选择头像
+
+上下左右控制小块移动
+
+
+事件处理流程
+    事件流捕获 
+     事件流是描述的从页面接受事件的顺序,当几个都具有事件的元素层叠在一起的时候,那么你点击其中一个元素,并不是只有当前被点击的元素会触发事件,而是层叠在你点击范围的所有元素都会触发事件。事件流包括两种模式：冒泡和捕获。
+    事件冒泡
+     事件冒泡是从里往外逐个触发. 事件捕获, 是从外往里逐个触发. 现代的浏览器默认情况下都是事件冒泡的模式.
+    (捕获是从外到里,不执行事件;  冒泡是从里到外,执行事件)
+    停止传播
+     evt.stopPropagation(); 
+
+
+自定义右键菜单
+    document.oncontextmenu = function(){
+      console.log("右键被按下");
+      //自己的菜单
+      .....
+      return false;  //默认是true 显示  false是阻止默认系统菜单
+      }
+
+
+获取生效的style样式
+  获取生效style样式
+  style = window.getComputedStyle(box, null);    //支持IE9+及非IE浏览器
+
+  和style区别
+  box.style.xxx 只能获取内联样式的属性
+  获取的生效样式可以获取全局的样式
+
+拖拽元素
+
+
+分页导航
+
+事件监听器
+    box.addEventListener(“click”, func, false) 
+    给box元素添加点击事件(click), 以及事件执行函数func.
+     参数1 是 事件名称  
+     参数2 是 事件执行函数名称  
+     参数3(false/true)  是否使用捕捉  默认是false  为冒泡   true 是在捕获阶段也会执行事件 ,然后在继续冒泡出去  冒泡到的元素如果有事件 也会执行事件
+    
+    box.removeEventListener(“click”, func)
+    将box元素的点击事件(click), 以及对应的事件执行函数func移除
+
+
+offsetTop和offsetLeft: 
+  1. 当某个元素的父元素或以上元素都未进行CSS定位时，则返回body元素，也就是说元素的偏移量(offsetTop、offsetLeft)等属性是以body为参照物的
+
+  2. 当某个元素的父元素进行了CSS定位时(absolute或者relative)，则返回父元素，也就是说元素的偏移量是以父元素为参照物的
+
+  3. 当某个元素及其父元素都进行CSS定位时，则返回距离最近的使用了CSS定位的元素
+
+
+
+

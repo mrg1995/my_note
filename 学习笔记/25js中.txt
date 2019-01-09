@@ -1,0 +1,68 @@
+day25
+2018.4.17
+16:39
+
+
+DOM文档对象模型
+
+获取标签
+    document.getElementById(id)  得到一个元素对象
+    document.getElementsByClassName(className)    得到得是一个数组
+    document.getElementsByTagName(tagName)    得到得是一个数组
+    document.getElementsByName(name)    得到得是一个数组
+    window.onload 函数. 表示 当文档加载完成之后在执行
+
+
+获取/设置属性
+    innerHTML
+    className
+    id
+    src
+    ...
+
+
+找儿子,兄弟,爸爸
+    找子级  父级标签.getElementById(id)....
+    找兄弟的上一级  当前元素.previousElementSubling()              当前元素.previousSubling()可以找的空的
+    找兄弟的上一级   当前元素.nextElementSubling()              当前元素.nextSubling()可以找的空的
+    找父级    当前元素.parentNode()
+
+动态的操作元素
+    创建一个元素,     document.createElement("标签名")
+    添加到父级节点下      父级节点.appendChild(节点对象)
+    替换    父级. replaceChild(新的节点.旧的节点) 
+    克隆    当前节点.cloneNode(true)    true深度复制, 子级也会被复制,     false  只会复制当前节点
+    移除,    当前节点.remove()      父级节点.removeChild()
+    插入    父级.insertBefore(新节点, 要插在谁之前的节点)
+
+动态的添加多个块
+
+隔行换色
+
+点击换肤
+
+点击换图    this代表当前对象
+
+对象
+    创建  new  Object()  或者 省略new
+    添加属性	对象名. 属性名  =  值
+    访问属性    对象名.属性名    或者 对象名[属性名]  
+    添加方法    对象名.方法名   = 匿名函数
+    调用方法    对象名.方法名()
+    字面量的形式定义   object = {属性名:属性值, ...... ,方法名:方法}
+
+DATE时间处理对象
+    时间戳  -  时间间隔
+    new Date()   获得当前的时间
+    getTime()  获得时间的毫秒值,   单位毫秒
+    new Date(时间戳, 特定形式的时间字符串)   获得特定的时间
+    获得/设置 月    get/setMonth()
+    获得    星期几   getDay()   不能设置
+    获得/设置 小时    set/getHour()      
+
+
+
+
+
+
+

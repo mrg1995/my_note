@@ -1,0 +1,118 @@
+day16
+2018.4.2
+16:49
+
+
+网络概述
+    使用网络的目的:  为了联通多方进行通讯
+    什么是网络 : 一种辅助多方连接在一起的工具
+    总结:所谓网络编程就是,让在不同电脑上的软件能够进行
+
+TCP/IP 简介:
+    协议是一种规定
+    计算机网络沟通遵守网络通信协议  叫做TCP/IP协议
+
+ip地址简介
+    用来在网络中标记一台电脑的一串数字;在本地局域网是唯一的
+
+端口简介:
+    端口号:端口是通过端口号来标记的,端口号只有整数,范围从0到65535
+    端口的分配: 端口号不是随意使用的,而是按照一定的规定进行分配
+    	知名端口:80端口分配给http服务
+	21端口分配给FTP服务
+
+TCP编程
+    客户端http请求
+	创建TCP连接时,主动发起连接的叫做客户端
+	创建客户端:
+	    创建一个socket连接:sk = socket.socket(socket.AF_INET,socket.SOCK_STREAM)  参数1是通信协议,参数2是执行面向流的TCP协议
+	    建立与服务器之间的联系:sk.connect(('www.sina.com.cn',80))  参数是一个元组,第一个元素是要连接的服务器的域名(方法会自动将其转为对应的IP地址),以及端口
+	    发送TCP请求:sk.send(b"GET / HTTP/1.1\r\nHost: www.sina.com.cn\r\nConnection:close\r\n\r\n")
+	    等待接收数据:data = []
+			while True:
+			    tempData = sk.rev(1024)
+			    if len(tempData) == 0 :
+				break
+			    data.apppend[tempData]
+		转换数据result = (b''.join(data).decode('utf-8))
+	    断开连接  sk.close()
+	获取头信息
+	    header,HTML = result.split('\r\n\r\n',1)
+	    print(header)
+    服务端
+        接收客户端的连接
+	创建服务端
+	    创建一个socket连接  server = socket.socet((socket.AF_INET,socket.SOCK_STREAM))
+	    绑定服务器地址及ip端口 server.bind(('192.168.1.106',8081))
+	    监听客户端连接    server.listen(5)
+	等待连接,获取客户端地址:  clientSocket,clientAddress = server.accept()
+	与客户端进行数据交互:
+	    获取客户端传入的数据:  data = clientSocket.recv(1024)
+	    解码打印 print ('客户端说:'+ data.decode('utf-8))
+	    发送给客户端:   clientSocket.send(sendData.encode('utf-8'))
+    客户端
+        client = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
+	client.connect(('192.168.1.106',8081))
+	while True:
+		data = input('给服务器发送数据')
+		client.send(data.encode('utf-8'))
+		info = client.recv(1024)
+		print('服务器说:'+ info.decode('utf-8'))
+
+UDP编程
+    概述  UDP传输数据不可靠,和tcp相比,速度快,但是不安全,以包的形式传输数据
+        使用UDP  协议时,不需要建立连接,只需要知道对方的ip地址和端口号
+    模拟飞秋
+        创建socket   udp = socket.socket(socket.AF_INET,socket.SOCK_DGRAM)
+	连接飞秋    ip 是接收方的ip地址,飞秋的端口是2425
+	发送消息    udp.sendto(str.encode('gbk'),(('192.168.1.106'),2425))
+	模拟飞秋的数据格式  str =  "1_lbt4_10#32499#002481627512#0#0#0:1289671407:名字:备注:288:我喜欢你很久了"
+	循环发送
+    服务端
+        创建socket  udpServer = socket.socket(socket.AF_INET,socket.SOCK_DGRAM)
+	绑定ip地址及端口号 udpServer.bind('192.168.1.106',8900)
+	接收客服端消息
+	    while True:
+	        data,addr = udpServer.recvfrom(1024)
+		print('客户端说:'+ data.decode('utf-8'))
+    客服端
+        创建socket  client = socket.socket(socket.AF_INET,socket.SOCK_DGRAM)
+	发送数据	data = input('请输入数据')
+			client.sendto(data.encode('utf-8'),('192.168.1.106',8900))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

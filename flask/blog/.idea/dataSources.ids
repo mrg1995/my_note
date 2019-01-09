@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source name="MySQL - hz1802@localhost" uuid="7c86b5ba-5867-4316-aec0-ad1d4236cf6a">
+    <database-info product="MySQL" version="5.7.14" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.46 ( Revision: 9cc87a48e75c2d2e87c1a293b2862ce651cb256e )">
+      <extra-name-characters>#@</extra-name-characters>
+      <identifier-quote-string>`</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="lower" quoted-identifiers="lower"/>
+    <database-model serializer="dbm" rdbms="MYSQL" format-version="2.5">
+      <schema id="1" name="hz1802"/>
+      <table id="2" parent="1" name="alembic_version"/>
+      <table id="3" parent="1" name="collections"/>
+      <table id="4" parent="1" name="post"/>
+      <table id="5" parent="1" name="users"/>
+      <column id="6" parent="2" name="version_num">
+        <mandatory>1</mandatory>
+        <data-type>varchar(32)</data-type>
+      </column>
+      <key id="7" parent="2" name="PRIMARY">
+        <columns>version_num</columns>
+        <primary>1</primary>
+      </key>
+      <column id="8" parent="3" name="user_id">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="9" parent="3" name="posts_id">
+        <data-type>int(11)</data-type>
+      </column>
+      <index id="10" parent="3" name="posts_id">
+        <columns>posts_id</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <index id="11" parent="3" name="user_id">
+        <columns>user_id</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <column id="12" parent="4" name="id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+        <sequence-identity>1</sequence-identity>
+      </column>
+      <column id="13" parent="4" name="content">
+        <data-type>text</data-type>
+      </column>
+      <column id="14" parent="4" name="pid">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="15" parent="4" name="path">
+        <data-type>varchar(255)</data-type>
+      </column>
+      <column id="16" parent="4" name="timestamp">
+        <data-type>datetime</data-type>
+      </column>
+      <column id="17" parent="4" name="uid">
+        <data-type>int(11)</data-type>
+      </column>
+      <index id="18" parent="4" name="uid">
+        <columns>uid</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <key id="19" parent="4" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <column id="20" parent="5" name="id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+        <sequence-identity>1</sequence-identity>
+      </column>
+      <column id="21" parent="5" name="username">
+        <data-type>varchar(12)</data-type>
+      </column>
+      <column id="22" parent="5" name="password_hash">
+        <data-type>varchar(128)</data-type>
+      </column>
+      <column id="23" parent="5" name="sex">
+        <data-type>tinyint(1)</data-type>
+      </column>
+      <column id="24" parent="5" name="age">
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="25" parent="5" name="icon">
+        <data-type>varchar(70)</data-type>
+      </column>
+      <column id="26" parent="5" name="confirm">
+        <data-type>tinyint(1)</data-type>
+      </column>
+      <column id="27" parent="5" name="email">
+        <data-type>varchar(40)</data-type>
+      </column>
+      <index id="28" parent="5" name="ix_users_username">
+        <columns>username</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <key id="29" parent="5" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+    </database-model>
+  </data-source>
+</component>

@@ -1,0 +1,135 @@
+day24
+2018.4.13
+19:23
+
+js中的hello
+    alert()   警告框显示  html加载时就开始执行
+    document.write()   在网页中显示  document是文档对象  括号里可以写标签
+    console.log()     在控制台以日志形式显示
+
+js的引入
+    在src中写入js文件路径
+    <script src="" type="text/javascript" charset="utf-8"></script>
+    #自己编写js文件
+    <script type="text/javascript">
+				
+    </script>
+
+数据类型
+    在js中定义一个变量 var 是关键字
+    js语句后面需要加上 ; 
+
+    一次定义多个变量 
+        var name = 10 , age = 10;
+	var name = age = 10;
+    
+    在js中数据类型不是在定义的时候确定的,是在赋值的时候根据值来确定
+
+    查看数据类型   typeof 变量名
+
+    变量需要先定义再使用
+
+    特殊的类型
+        没有定义的变量是undefined 类型
+	null 算数据  是object类型 注意: null == undefined 返回true
+    
+    如果整数后的小数是0,则js会把小数部分舍弃
+    Infinity  是number类型     
+    NaN   不是一个数字  但是是number类型 (undefined四则运算后会变成NaN) NaN 可以理解为一个不确定的数  两个NaN ==  返回false  用isNaN()来判断是否是NaN
+
+    数据类型转换
+        数字,布尔 转换成字符串  String()
+	js中字符串可以拼接  'age' + 18  不同类型的会自动转换成str型
+	字符串转换成整数 parseInt()   会从字符串开头开始读,读完或者读到第一个非数字字符为止.注意:如果第一个就是非数字字符,会返回NaN
+	字符串转换成浮点数  parseFloat()
+	转换成布尔类型
+	    假的: null,'',NaN,underfined,0
+
+js中的运算符
+    === 如果两个数的值和类型都一致返回true  否则返回false
+    ==  判断两个数的值是否一致,不管类型
+    !==
+    !=
+    && 逻辑与 
+    || 逻辑或
+    ! 逻辑非
+
+分支if语句
+    格式1: if(判断表达式){语句1}else{语句2}
+    格式2: if(判断表达式1){语句1}else if(判断表达式2){语句2}
+    格式3: switch(变量){case 值1:代码1; case2 值2:代码2 ; ....default:代码n;}
+    格式4: 三目运算符   判断表达式 ? res1 : res2     执行判断表达式,根据判断表达式的结果返回一个值,如果判断表达式成立,返回res1 ;否则返回res2
+
+循环语句
+    格式1: while(条件){循环体}
+    格式2:do{循环体}while(条件)  无论如何都会先执行一遍循环体
+    格式3:for(声明变量 ; 执行条件 ; 计数){}
+
+    遍历数组索引
+    for (var i in [1,2,3]){console.log(i)}    返回 0  1  2
+    遍历数组元素
+    for (var i in [1,2,3]){console.log(i)}   返回 1  2  3
+
+交换变量
+    1 使用中间变量
+    2  a = a + b     b = a - b     a = a - b  (不使用中间变量)
+
+数组
+    数组是一个创建出来的对象
+    创建一个数组 var arr = new Array()   也可以  var arr = [1,2,3]  来创建  
+        括号中给定一个值,表示创建多长的数组
+	给定多个值,表示创建一个有多个值的数组  数组是有序的
+    
+    获得数组的长度  arr.length   这个是它的属性
+    增
+        向数组的右侧添加数据   arr.push()  括号内输入参数  如果同时添加多个  也会按顺序加入数组中
+	向数组的左侧添加数据   arr.unshift()  注意:原数据都会后移  索引位置都改变
+	插入数据    arr.splic(1,0,'王宝强','宋哲')
+	    参数1 是 插入的位置
+	    参数2 是 要替换/删除 参数1 位置后的几个元素  0 即插入   1-n 即替换 
+	    参数3-n 是 插入的值,可以插入多个值    也可以不传  即为删除
+    删
+        从右侧删除,并返回删除的元素   arr.pop()
+	从左侧删除   arr.shift()
+	指定位置删除   arr.splice(1,1) 参数1是开始删除的位置,参数2是删除参数1下标后面几个元素
+	注意: 删除后,原索引对应的元素会发生改变
+    查
+        格式 : 数组名[下标]
+	下标不能是负数,也不能超出范围,会返回undefined
+
+	截取  arr.slice(1,3)  参数1起始位置(包含)  参数2是结束位置(不包含)
+    改
+        arr[下标] = 新值  
+	修改时,如果下标超出原范围,数组会自动扩充新的范围,新范围容纳该元素,为设置位置为undefined
+
+    拼接
+        数组的拼接  res = arr1.concat(arr2)
+	如果直接相加  会返回一个字符串
+
+函数
+    格式  function 函数名(参数列表){函数体;return  返回值/表达式;}
+    js中的函数是以function关键字开始的,函数名是自定义的,遵从标识符规则(注: js 标识符规则多一个$符号) 
+    如果函数没有返回值,会默认返回undefined
+
+排序
+    arr.sort()  默认从小到大排序,改变原数组
+    arr.sort().reverse() 按从大到小排序 
+    注意: 默认是比较两个数的ascii码,不是比数值的大小
+    
+    自定义排序
+	function compare(a, b) {
+	    if(a < b) {
+		return true;
+		} else {
+		return false;
+		}
+	      }
+	 #从大到小排序
+	 arr.sort(compare)
+
+
+
+
+
+
+

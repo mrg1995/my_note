@@ -1,0 +1,123 @@
+day17
+2018.4.3
+17:24
+
+python 2.x 与 python 3.x 的区别
+    性能  3比2效率低  
+    编码  3的源码文件使用UTF-8 编码    2 中  #-*- coding: UTF-8 -*- 表示Unicode的编码方式
+    语法  去除了<>  改用 !=  2中两种都能用  3中只能用!=
+          3中整型除法返回浮点数  2中返回整数 会舍弃掉小数部分
+	  改变了顺序操作符的行为,例如x < y 类型不匹配时 2会返回False  3会报错
+	  新式的8进制变量 0o666  0666 0O666 2都能用  3 0O666    数字前0x 表示16进制
+	  加入as和with关键字
+    函数使用
+	  取出print语句,加入print()函数
+	  取出raw_input,加入input()函数
+	  xrange()改名为range(),要使用range()获得一个list,xrange()获得一个生成器
+	  file类被废弃  2 open()  file() 用来打开文件    3 open() 打开文件
+    字符串  2 中字符串以8字节存储  3中字符串以16字节存储
+    数据类型
+	3去除了long类型 只有一种整型 int 行为和2 中的long一致
+	3新增了bytes类型  对应2中的8位串
+    异常
+        所有异常都从BaseException继承,并删除了StardardError
+	2	try:
+		......
+		except Exception,e:
+		...........
+	3	try:
+		......
+		except Exception as  e:
+		...........
+    模块变动
+	移除了cPickle模块，可以使用pickle模块代替。
+
+高阶函数
+    map
+	原型  map(func,lsd)  参数1是函数 函数必须传入一个数据,必须有一个返回值  参数2 是序列
+	功能  将传入的函数依次作用域序列中的每一个元素,并把结果作为一个新的迭代器返回
+	案例  将整数元素的序列转为字符串型
+    reduce
+        原型 reduce(func,lsd)  参数1是函数  参数2 是序列
+	导入模块  from functools import reduce
+	功能   一个函数作用在序列上,这个函数必须接收2个参数,recude把结果继续和序列中的下一个元素累计运算
+	案例  求一个序列的和
+	      def mySum(x,y):
+	          return x+y
+	      r = reduce(mySun,list2)
+    map与reduce 可以结合使用   将字符串转换成对应字面的数字
+    filter
+        原型  filter(func,lsd)  参数1是函数  参数2是序列
+	功能  过滤序列  把传入的函数依次作用于序列每一个元素,根据返回的True(保留) 还是 False 决定是否保留该元素
+	案例  把数组中的奇数剔除
+	    list1 = [1,2,3,4,5,6,7,8,9]
+		#筛选条件
+		def func(num):
+		   if num%2 == 0:
+		     return True
+		   return False
+		l = filter(func, list1)
+    sorted排序
+	排序方式:选择,冒泡,插入
+	普通排序: sorted(list1)
+	按绝对值大小排序 sorted(list1,key=abs)
+	降序:   sorted(list1,reverse=True)
+	自定义排序  函数可以自己写
+
+列表生成式
+	内置的简单强大的用来创建list的生成式
+	生成列表
+	    list(range(1,11))
+	    list1 = [i for i in range(1,11)]
+	生成表达式列表
+	    [i**2 for i in range(1,11)]
+	    写列表生成式时,要把生成的元素放在前面,后面加for循环
+	if判断生成式  [i for i in range(1,11) if i%2 == 0]
+	两层循环  [m + n for m in 'ABC' for n in 'XYZ']
+	
+生成器
+    列表的容量有限,创建包含10000000个元素的列表时,会占用大内存
+    解决 :生成器   边循环边计算的机制,为生成器
+    gennertor 第一种形式  生成器表达式
+        创建gennertor  只要把列表生成式的[] 改成()  g1 = (i for i in range(1,11))
+	获取生成器中的每个元素
+		next(g)  计算g的下一个元素的值
+		for循环获取  for i in g1
+	生成器的工作原理:边循环边计算
+    gennertor 第二种形式  生成器函数
+        如果一个函数定义中包含yield关键字 ,这个函数不再是一个普通的函数,而是一个生成器
+	作用: 延迟操作  就是在需要的时候才产生结果  不是立即产生结果
+	流程:generator和函数的执行流程不一样。函数是顺序执行，遇到return语句或者最后一行函数语句就返回。而变成generator的函数，在每次调用next()的时候执行，遇到yield语句返回，再次执行时从上次返回的yield语句处继续执行。
+
+迭代器
+    可迭代对象  可直接作用与for循环  iterable
+    	集合数据类型  生成器  
+    迭代器
+        可以被next()函数调用并不断返回下一个值的对象称为迭代器 iterator    表示一个惰性计算的序列
+    将可迭代对象转换成迭代器  iter()
+    判断  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

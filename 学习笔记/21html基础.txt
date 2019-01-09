@@ -1,0 +1,117 @@
+day21
+2018.4.10
+16:54
+
+
+html标记
+    语法 
+       常规标记:<标记名称 属性1:'属性1值'...></标记名称>
+       空标记:<标记名 属性1:''属性值 / >
+    常见标记
+        注 若是空标记 会在后部写空
+        <h1></h1> 标题标记  h1-h6
+	<p></p> 段落标记 默认情况下段落与段落之间有段距离
+	<i></i>|<em></em>  倾斜字体标记  
+	<b></b>   字体加粗标记
+	u   设置文本下划线
+	br  换行 空
+	字符实体  &nbsp 空格 &gt >   &lt 左尖括号
+    列表
+        无序列表 ul
+	有序列表 ol
+	    拓展:
+	    1 type:规定列表中的列表项目的项目符号的类型
+	    2 start 属性规定有序列表的开始点
+
+	自定义列表 dl
+    超链接和图片
+      超链接
+        <a href='#'>空链接</a>
+	href 是连接页面的路径 
+	title 当鼠标移到链接下时显示title的内容
+	target 定义了打开链接的目标窗口  _blank 新窗口 _self 原窗口
+      插入图片
+        <img src='图片路径' border='边框' alt='当图片加载不出来显示的文本',title='鼠标停在图片上时显示的内容' width=''height=''>
+	图片路径 包括 相对路径 绝对路径 以及网络地址
+    常用元素
+        div 标记  块标签,用来设置文档区域,用来布局
+	span 标记  文本节点标签 本身无任何作用  可以添加一些属性给截取的文字部分
+    表格属性
+        语法:<table>
+		<tr>  #第一行
+		 <td></td>#第一个行第一个单元格
+		</tr>
+	     </table>
+	表格的相关属性
+	1.width 宽
+	2.height 高
+	3.border 表格的边框长度
+	4.bordercolor 边框色
+	5.cellspacing  单元格之间的距离
+	6.cellpadding  单元格与内容之间的距离
+	7.align  表格水平对齐方式   left right center valign(垂直对齐) top\bottom\middle
+	8.合并单元格属性  td 合并列 colspan='要合并的列数'  合并行 tr   rowspan='要合并的行数'
+    表单
+        1表单框
+	    <form name = '表单名称' method='post/get' action='路径(服务器地址)'>
+	    </form>
+	2.表单控件
+	    <input type=''/>
+	    语法
+	    <input type='表单控件的类型' name='' value='' size='' maxlength=''/>
+	    input : 标记  可以创建按钮 文本输入框 选择框等各种类型的输入字段
+	    name : 属性标识  表单域的名称
+	    type : 属性标识  表单控件的类型 有10多种
+	    value: 属性定义   表单域的默认值,其他属性根据type的不同而有所变化
+	    maxlength: 控制最多输入的字符数
+	    size: 控制框的宽度(以字符为单位)
+	    placeholder: 规定可描述输入字段预期值的简短的提示信息。
+
+	    各种 type
+	        1 文本框  text
+		2 密码框  password
+		3 提交按钮  submit    按下后会把数据发给服务器  或者请求数据
+		4 重置按钮  reset     重置表单内所有控件内的数据  
+		5 空按钮  button   
+		6 单选项按钮组  radio   将不同按钮组内的name值设置成相同后 即可互斥选择 (变成单选)
+		7 多选框组   checkbox    checked = 'checked' (默认选中)
+	    
+	    表单域下拉列表(菜单)
+	        语法:
+		 <select>
+		     <option></option>
+		 </select>
+	    表单域多行文本定义
+		语法:
+		 <textarea name='' cols='' rows=''></textarea>
+		 rows属性和cols属性用来设置文本输入窗口的高度和宽度,单位是字符
+	    
+    扩展知识点 post 和 get的区别:
+        1 get 是从服务器上获取数据,post是向服务器传送数据
+	2 get 是把参数数据队列加到提交表单的action属性所指的url中,在url中可以看到属性值.post是通过http post机制,用户看不到过程
+	3 get 传输的数据量较小 不能大于2kb  ;post传输的数据量大  一般默认不受限制
+	4 安全性post高   效率get高
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

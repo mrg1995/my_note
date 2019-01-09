@@ -1,0 +1,119 @@
+day05
+2018.3.20
+
+
+
+字典dict
+    定义:格式: {key:value,} 用{}包裹
+    元素的访问
+        获取:
+	  dict[key]  如果有key ,返回value;若没有此key,报错 
+	  dict.get(key) 如果有key ,返回value;若没有此key,返回None
+	添加:dict[key] = value
+	修改:dict[key] = value  
+	删除:dict.pop(key)   
+    遍历:
+        遍历key: for i in dict   ;   for i  in dict.keys()
+	遍历value:  for i in dict.values()
+	遍历item:  for key,value in dict.item()
+	遍历enumerate分解:  for index,key in enumerate(dict)
+    与list比较:
+        字典:
+	  1.查找和插入的速度极快,不会随着键值对的增加而变慢
+	  2.需要占用大量的内存,内存浪费多
+	列表:
+	  1.查找和插入的速度随着数据量的增多而减慢
+	  2.占用空间小,浪费内存少
+    字典内置函数和方法
+	dict.clear() 删除字典内所有元素
+	dict.copy() 返回一个字典的浅拷贝
+	dict.get(key[,default=None]) 返回指定键的值,如果键不在字典里返回default值
+	dict.has_key(key)如果键在字典返回true,否则返回false
+	dict.items() 以列表返回可遍历的(键,值),元组
+	dict.keys() 以列表返回一个字典所有的键
+	dict.values() 以列表返回字典所有的值
+	dict.pop(key[,default])  删除字典给定键key和所对应的值,返回值为被删除的值.若key值没在字典中,返回default的值
+	dict.popitem() 随机返回并删除字典中的一对键和值
+
+元组tuple
+    本质是一种有序集合
+    特点:
+    	与列表类似
+	一旦初始化就不能修改
+	使用小括号
+    创建元组
+        格式: 元组名 = (元组元素1,...)
+	元组中的元素类型可以不同
+	定义只有一个元素的元组
+	    例: tuple = (1,)
+    元组元素访问: 
+        取值:  tuple[1]
+	修改:一般不能修改,也有例外:tuple1 = (1,2,[1,2])
+	删除元组:del 
+    元组操作
+        元组连接组合:  +
+	元组重复:  *
+	判读元素是否在元组中: in
+	元组的截取: tuple[::]
+    二维元组
+    元组方法
+        len()计算元组元素个数
+	max()返回元组中最大值
+	min()返回元组中最小值
+	元组的遍历:
+	    for i in tuple
+
+set 集合
+    本质:无序和无重复元素的集合
+    创建
+      创建set需要用list tuple dict作为输入 集合
+      重复元素在set中自动被过滤
+      s1 = set([1,2,3,4,5,5])
+      s1 = {1,2,3,4,5}   
+    操作
+	添加: s1.add(2)  可以重复添加,但不会有效果
+	插入整个list,tuple,字符串:
+	    update 打碎之,插入
+	    s1.update('abcd')
+	    不能直接插入数字
+	删除: s1.remove(3)
+	遍历: for i in s1
+	交集: set1 & set2
+	并集: set1 | set2
+	    
+list 列表
+    创建列表: list = []
+    访问元素
+    列表替换
+    列表操作:
+        +
+	*
+	in
+	list[::]
+	二维列表
+    列表的函数:
+	list.append(obj) 在末尾添加新的对象
+	list.extend(seq) 在列表末尾一次性追加另一个序列中的多个值
+	list.insert(index,obj) 在下标处添加一个元素,不覆盖原数据,原数据向后顺延
+	
+	list.pop(obj=list[-1]) 移除列表中的一个元素,默认是最后一个元素,并返回该元素的值,参数值为删除元素的下标
+	list.remove(obj) 移除列表中第一个匹配项 
+	list.clear() 清除列表中的所有数据
+	
+	list.index() 从列表中找到某个值第一个匹配项的索引位置
+	list[索引] 列表元素访问
+	len() 列表中元素个数
+	list.count(obj) 统计某个元素在列表中出现的次数
+
+	list.reverse() 反向列表中的元素
+	list.sort()  对列表进行排序 从小到大   
+	sorted()   对列表进行排序 从小到大  返回一个新列表
+	max()
+	min()
+    拷贝: list1 = list2.copy()
+
+
+
+
+
+

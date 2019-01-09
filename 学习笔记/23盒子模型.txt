@@ -1,0 +1,69 @@
+day23
+2018.4.13
+19:04
+
+盒子模型
+    标准盒子模型
+	矩形区域
+	元素组成
+	    content ---width / height
+	    padding 内边距
+	    border  边框
+	    margin  外边距
+    怪异盒子模型
+        width = padding(left+right) + content + border(left+right)
+	box-sizing: border-box 怪异盒子模型   content-box标准盒子模型
+
+外边距问题
+    纵向排列时,margin(外边距) 取大值
+    横向排列时,margin取 和
+
+内容溢出
+    overflow
+        visible  默认值,当文本超出容器时,会溢出
+	hidden  当文本超出容器时,会把截掉多余部分
+	scroller   会有滚动条  可以滚动查看内容
+	auto    
+	注意:  一个单词不会换行
+    省略号 
+        overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+
+元素类型
+    块级元素   单独占据一行,可设置宽高
+    行内元素   不会单独占据一行,不可设置宽高
+    行内块元素  不会占据一行,可设置宽高,img  input
+    转换:display  
+          block   inline    inline-block   none
+
+定位
+    position
+	static  默认值  不会脱离文档流  不支持top..
+	absolute  相对父级元素的绝对定位,会脱离文档流,会影响原文档流,支持top...
+	relative  相对自己原位置的绝对定位,不会脱离文档流,不会影响原文档流,支持top..
+	fixed   相对浏览器的绝对定位,会脱离文档流,会影响文档流,支持top...
+    z-index 控制层数,该元素需要设置position属性才会生效
+    居中:  calc(50% - 宽/高 的一半)
+
+锚点链接
+    <a href='#id名'>链接名</a>
+    <元素 id='id名'>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
