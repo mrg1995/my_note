@@ -39,7 +39,7 @@ Markdown==2.6.8
 MarkupSafe==1.0
 Pillow==5.1.0
 pycparser==2.18
-pycryptodome==3.6.3
+pycryptodome>=3.6.6
 Pygments==2.2.0
 PyJWT==1.6.4
 PyMySQL==0.8.1
