@@ -9,7 +9,7 @@ cffi==1.11.5
 chardet==3.0.4
 coreapi==2.3.3
 coreschema==0.0.4
-Django==1.11
+Django>=1.11.18
 django-celery==3.2.1
 django-cors-headers==2.3.0
 django-crispy-forms==1.7.2
